@@ -10,6 +10,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://diverseindustriesinc.com" />
   <link rel="canonical" href="https://diverseindustriesinc.com" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <meta property="og:image" content="https://diverseindustriesinc.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://diverseindustriesinc.com/assets/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -126,8 +132,18 @@
     }
     .nav-logo {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 12px;
       line-height: 1.1;
+    }
+    .nav-logo-img {
+      height: 44px;
+      width: auto;
+      flex-shrink: 0;
+    }
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
     }
     .nav-logo-main {
       font-size: 1.05rem;
@@ -232,6 +248,11 @@
       position: relative;
       z-index: 1;
       padding: 120px 0 80px;
+    }
+    .hero-logo {
+      height: 72px;
+      width: auto;
+      margin-bottom: 28px;
     }
     .hero-badge {
       display: inline-flex;
@@ -580,6 +601,7 @@
     .footer-brand .nav-logo-main { color: var(--white); font-size: 1.15rem; }
     .footer-brand .nav-logo-sub { color: rgba(255,255,255,0.5); }
     .footer-brand p { margin-top: 16px; font-size: 0.875rem; line-height: 1.7; }
+    .footer-logo-img { height: 52px; width: auto; margin-bottom: 4px; }
     .footer-col h4 {
       font-size: 0.8rem;
       font-weight: 700;
@@ -658,8 +680,11 @@
   <nav class="navbar" id="navbar">
     <div class="navbar-inner">
       <a href="#hero" class="nav-logo">
-        <span class="nav-logo-main">DIVERSE INDUSTRIES INC.</span>
-        <span class="nav-logo-sub">AI + Business Consulting</span>
+        <img src="assets/di-logo-nav.png" alt="Diverse Industries Inc." class="nav-logo-img" />
+        <span class="nav-logo-text">
+          <span class="nav-logo-main">DIVERSE INDUSTRIES INC.</span>
+          <span class="nav-logo-sub">AI + Business Consulting</span>
+        </span>
       </a>
       <div class="nav-links">
         <a href="#services">Services</a>
@@ -689,6 +714,7 @@
   <section class="hero" id="hero">
     <div class="hero-grid-pattern"></div>
     <div class="container hero-content">
+      <img src="assets/diverse-logo-hero-inv.png" alt="Diverse Industries Inc." class="hero-logo" />
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
         Atlanta, GA · Serving Clients Worldwide
@@ -973,10 +999,7 @@
     <div class="container">
       <div class="footer-main">
         <div class="footer-brand">
-          <div class="nav-logo">
-            <span class="nav-logo-main">DIVERSE INDUSTRIES INC.</span>
-            <span class="nav-logo-sub">AI + Business Consulting</span>
-          </div>
+          <img src="assets/diverse-logo-footer.png" alt="Diverse Industries Inc." class="footer-logo-img" />
           <p>Empowering businesses with AI tools and expert consulting. Atlanta-based, serving clients worldwide.</p>
           <div class="footer-social">
             <a href="https://www.facebook.com/diverseinc.net" target="_blank" rel="noopener" aria-label="Facebook">
