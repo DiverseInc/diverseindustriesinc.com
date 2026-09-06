@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diverse Industries Inc. — AI + Business Consulting</title>
+  <meta name="description" content="Diverse Industries Inc. delivers production-grade AI tools and expert business consulting across real estate, staffing, process improvement, and more." />
+  <meta property="og:title" content="Diverse Industries Inc. — AI + Business Consulting" />
+  <meta property="og:description" content="From AI-powered deal analysis to business strategy consulting — Diverse Industries Inc. has the tools and expertise to move your business forward." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://diverseindustriesinc.com" />
+  <link rel="canonical" href="https://diverseindustriesinc.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:      #0A2540;
+      --navy-mid:  #0f3460;
+      --gold:      #F5A623;
+      --gold-dark:  #d4911e;
+      --white:     #ffffff;
+      --surface:    #F8F9FC;
+      --text:       #1A1A2E;
+      --muted:      #6B7280;
+      --border:     #E5E7EB;
+      --radius:     12px;
+      --shadow:     0 4px 24px rgba(10,37,64,0.08);
+      --shadow-lg:  0 12px 48px rgba(10,37,64,0.14);
+      --max-w:      1200px;
+      --section-py: 100px;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ─── Utilities ─── */
+    .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── Buttons ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+    .btn-primary:hover { background: var(--gold-dark); border-color: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245,166,35,0.35); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.6);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-2px); }
+    .btn-outline-navy {
+      background: transparent;
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+    .btn-outline-navy:hover { background: var(--navy); color: var(--white); transform: translateY(-2px); }
+    .btn-sm { padding: 10px 20px; font-size: 0.875rem; }
+
+    /* ─── Navbar ─── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+    }
+    .navbar.scrolled {
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(10,37,64,0.1);
+    }
+    .navbar-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .nav-logo-main {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 0.03em;
+      transition: color 0.3s;
+    }
+    .navbar.scrolled .nav-logo-main { color: var(--navy); }
+    .nav-logo-sub {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      transition: color 0.3s;
+    }
+    .navbar.scrolled .nav-logo-sub { color: var(--muted); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .navbar.scrolled .nav-links a { color: var(--text); }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { margin-left: 8px; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: background 0.3s;
+    }
+    .navbar.scrolled .hamburger span { background: var(--navy); }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--navy);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 8px;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .btn { margin-top: 16px; }
+
+    /* ─── Hero ─── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(245,166,35,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(15,52,96,0.6) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-grid-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 120px 0 80px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,166,35,0.15);
+      border: 1px solid rgba(245,166,35,0.3);
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      max-width: 800px;
+    }
+    .hero h1 .gold { color: var(--gold); }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+    }
+
+    /* ─── Section base ─── */
+    section { padding: var(--section-py) 0; }
+    .section-header { margin-bottom: 56px; }
+
+    /* ─── Services ─── */
+    .services { background: var(--surface); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      cursor: default;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gold);
+    }
+    .service-icon {
+      width: 52px; height: 52px;
+      background: rgba(245,166,35,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--gold);
+      transition: background 0.2s;
+    }
+    .service-card:hover .service-icon { background: var(--gold); color: var(--white); }
+    .service-icon svg { width: 26px; height: 26px; stroke-width: 1.8; }
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      font-size: 0.925rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .service-card .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .service-card .service-link svg { width: 14px; height: 14px; transition: transform 0.2s; }
+    .service-card:hover .service-link svg { transform: translateX(4px); }
+
+    /* ─── AI Tools ─── */
+    .ai-tools { background: var(--white); }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .tool-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+    }
+    .tool-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--navy), var(--gold));
+    }
+    .tool-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+    .tool-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .tool-card .tool-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .tool-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .tool-price {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .tool-price span { font-weight: 400; color: var(--muted); font-size: 0.8rem; }
+
+    /* ─── Catalog CTA ─── */
+    .catalog-cta {
+      background: var(--navy);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .catalog-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(245,166,35,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .catalog-cta .section-title { color: var(--white); }
+    .catalog-cta .section-sub { color: rgba(255,255,255,0.65); margin: 0 auto 32px; }
+    .catalog-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .catalog-cta .btn-gold { background: var(--gold); color: var(--navy); font-weight: 700; padding: 16px 36px; font-size: 1rem; }
+    .catalog-cta .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,166,35,0.4); }
+
+    /* ─── About ─── */
+    .about { background: var(--surface); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-narrative p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about-narrative p:last-child { margin-bottom: 0; }
+    .about-narrative strong { color: var(--navy); }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .about-stat-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+    .about-stat-value {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .about-stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* ─── Contact ─── */
+    .contact { background: var(--white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group .field-error { font-size: 0.8rem; color: #e53e3e; display: none; }
+    .form-group.error input,
+    .form-group.error select,
+    .form-group.error textarea { border-color: #e53e3e; }
+    .form-group.error .field-error { display: block; }
+    .form-success {
+      display: none;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: var(--radius);
+      padding: 24px;
+      color: #059669;
+      font-weight: 600;
+      text-align: center;
+    }
+    .form-success.show { display: block; }
+    .contact-info-cards { display: flex; flex-direction: column; gap: 20px; margin-top: 8px; }
+    .contact-card {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      border: 1px solid var(--border);
+    }
+    .contact-card-icon {
+      width: 44px; height: 44px;
+      background: rgba(10,37,64,0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+    .contact-card-icon svg { width: 20px; height: 20px; }
+    .contact-card-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    .contact-card-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+    .contact-card-value a:hover { color: var(--gold); }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.7);
+      padding: 56px 0 32px;
+    }
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand .nav-logo-main { color: var(--white); font-size: 1.15rem; }
+    .footer-brand .nav-logo-sub { color: rgba(255,255,255,0.5); }
+    .footer-brand p { margin-top: 16px; font-size: 0.875rem; line-height: 1.7; }
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 0.875rem; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--gold); }
+    .footer-social { display: flex; gap: 12px; margin-top: 4px; }
+    .footer-social a {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.7);
+      transition: background 0.2s, color 0.2s;
+    }
+    .footer-social a:hover { background: var(--gold); color: var(--navy); }
+    .footer-social svg { width: 16px; height: 16px; }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      font-size: 0.8rem;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a:hover { color: var(--white); }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 1024px) {
+      :root { --section-py: 80px; }
+      .footer-main { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      :root { --section-py: 64px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .hero-stat-value { font-size: 1.5rem; }
+      .services-grid, .tools-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      .footer-main { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas .btn { width: 100%; justify-content: center; }
+      .catalog-cta-btns { flex-direction: column; align-items: center; }
+      .catalog-cta-btns .btn { width: 100%; justify-content: center; }
+    }
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--surface); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+    /* ─── Scroll-reveal stagger ─── */
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Navbar ─── -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="nav-logo-main">DIVERSE INDUSTRIES INC.</span>
+        <span class="nav-logo-sub">AI + Business Consulting</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#ai-tools">AI Tools</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="btn btn-primary btn-sm nav-cta">Free Consultation</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="closeMobile()">Services</a>
+    <a href="#ai-tools" onclick="closeMobile()">AI Tools</a>
+    <a href="#catalog" onclick="closeMobile()">Catalog</a>
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+    <a href="#contact" class="btn btn-primary" onclick="closeMobile()">Free Consultation</a>
+  </div>
+
+  <!-- ─── Hero ─── -->
+  <section class="hero" id="hero">
+    <div class="hero-grid-pattern"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Atlanta, GA · Serving Clients Worldwide
+      </div>
+      <h1>We Build<br /><span class="gold">Businesses.</span><br />We Build <span class="gold">AI.</span></h1>
+      <p class="hero-sub">
+        Diverse Industries Inc. delivers expert business consulting across real estate, operations, staffing, and growth strategy — alongside a growing suite of production-grade AI tools built for professionals who demand results.
+      </p>
+      <div class="hero-ctas">
+        <a href="#ai-tools" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/></svg>
+          Explore AI Tools
+        </a>
+        <a href="#contact" class="btn btn-outline">Work With Us</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value">22+</div>
+          <div class="hero-stat-label">AI Tools Built</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">5+</div>
+          <div class="hero-stat-label">Industries Served</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">1</div>
+          <div class="hero-stat-label">Trusted Partner</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Services ─── -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">Consulting Across Industries</h2>
+        <p class="section-sub">From strategy to execution, we work alongside you to solve complex business challenges — with expertise built across real estate, operations, staffing, and growth.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-6h6v6"/></svg>
+          </div>
+          <h3>Business Strategy</h3>
+          <p>Long-term planning, process improvement, and operational frameworks that create sustainable growth. We diagnose what's slowing you down and build a roadmap forward.</p>
+          <a href="#contact?service=strategy" class="service-link">Discuss your strategy <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>AI Integration</h3>
+          <p>Embedding AI tools into your existing workflows — without the hype. We help you identify what actually saves time, cut through the noise, and get adoption right the first time.</p>
+          <a href="#contact?service=ai" class="service-link">Explore AI options <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Staffing &amp; Talent</h3>
+          <p>Finding the right people for the right roles — faster. We support businesses in sourcing, evaluating, and placing talent across operations, sales, and administration.</p>
+          <a href="#contact?service=staffing" class="service-link">Staffing support <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+        <div class="service-card reveal reveal-delay-4">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Sales &amp; Marketing</h3>
+          <p>Lead generation, funnel optimization, and brand positioning for businesses ready to grow. From pipeline review to campaign strategy, we help you reach the right customers.</p>
+          <a href="#contact?service=marketing" class="service-link">Grow your revenue <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── AI Tools ─── -->
+  <section class="ai-tools" id="ai-tools">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">AI Tools</span>
+        <h2 class="section-title">Production-Grade Tools. Ready to Use.</h2>
+        <p class="section-sub">A curated selection of AI-powered tools — each built for real professional workflows. No demos, no fluff. These are live, working products.</p>
+      </div>
+      <div class="tools-grid">
+        <!-- DealIQ Pro -->
+        <div class="tool-card reveal reveal-delay-1">
+          <span class="tool-badge">Real Estate AI</span>
+          <h3>DealIQ Pro</h3>
+          <p class="tool-desc">AI-powered deal analysis and dealflow management for real estate professionals. Evaluate opportunities, run financial scenarios, and close faster — all in one platform.</p>
+          <div class="tool-meta">
+            <span class="tool-price">From <span>$79</span> / month</span>
+            <a href="https://dealiq.diverseindustriesinc.com/broker" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Try Free</a>
+          </div>
+        </div>
+        <!-- PromptForge Pro -->
+        <div class="tool-card reveal reveal-delay-2">
+          <span class="tool-badge">AI Productivity</span>
+          <h3>PromptForge Pro</h3>
+          <p class="tool-desc">37-in-1 AI prompt studio for professionals. Master AI prompting across business writing, analysis, coding, creative, and more. One tool, every use case.</p>
+          <div class="tool-meta">
+            <span class="tool-price"><span>$19</span> — one-time</span>
+            <a href="https://diverseinc.github.io/promptforge" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Learn More</a>
+          </div>
+        </div>
+        <!-- DualBroker CRM -->
+        <div class="tool-card reveal reveal-delay-3">
+          <span class="tool-badge">CRM</span>
+          <h3>DualBroker CRM</h3>
+          <p class="tool-desc">Real estate CRM built on AI — designed for brokers and agents who need intelligent lead tracking, follow-up automation, and pipeline visibility without the enterprise complexity.</p>
+          <div class="tool-meta">
+            <span class="tool-price">Free to use</span>
+            <a href="https://diverseinc.github.io/dualbroker-crm/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Open App</a>
+          </div>
+        </div>
+        <!-- RAG Command Center -->
+        <div class="tool-card reveal reveal-delay-4">
+          <span class="tool-badge">AI Infrastructure</span>
+          <h3>RAG Command Center</h3>
+          <p class="tool-desc">Build and manage AI knowledge bases with precision. Upload documents, query your data with natural language, and deploy production-ready RAG pipelines in minutes.</p>
+          <div class="tool-meta">
+            <span class="tool-price">Free to use</span>
+            <a href="https://diverseinc.github.io/rag-command-center/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Open App</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Catalog CTA ─── -->
+  <section class="catalog-cta" id="catalog">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label" style="color: var(--gold);">The Full Catalog</span>
+        <h2 class="section-title" style="max-width: none;">22+ Tools and Counting</h2>
+        <p class="section-sub">
+          Browse the complete Diverse Industries AI catalog — productivity tools, real estate apps, business automation, and more. All hosted, all live.
+        </p>
+        <div class="catalog-cta-btns">
+          <a href="https://store.diverseindustriesinc.com" target="_blank" rel="noopener" class="btn btn-gold">
+            Visit the Full Catalog
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="https://diverseinc.gumroad.com/l/10-ai-prompts-real-estate" target="_blank" rel="noopener" class="btn btn-outline">Free AI Prompts for Real Estate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── About ─── -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-narrative reveal">
+          <span class="section-label">About Us</span>
+          <h2 class="section-title">Built for Businesses That Want to Move</h2>
+          <p>
+            <strong>Diverse Industries Inc.</strong> was founded by <strong>Anthony Watson</strong> in Atlanta, Georgia, with a clear mission: give businesses the strategic support and AI tools they actually need — not the ones that sound impressive in a pitch deck.
+          </p>
+          <p>
+            We work with <strong>startups, established businesses, and professionals</strong> across real estate, operations, staffing, and growth strategy. Our approach is direct, results-driven, and built around your specific situation — not a pre-packaged playbook.
+          </p>
+          <p>
+            Alongside consulting, we've built a growing suite of <strong>production-grade AI tools</strong> — from deal analysis to CRM, from prompt libraries to knowledge base infrastructure — all designed to solve real problems for real professionals.
+          </p>
+        </div>
+        <div class="about-stats reveal reveal-delay-2">
+          <div class="about-stat-card">
+            <div class="about-stat-value">22+</div>
+            <div class="about-stat-label">AI Tools in Catalog</div>
+          </div>
+          <div class="about-stat-card">
+            <div class="about-stat-value">5+</div>
+            <div class="about-stat-label">Industries Served</div>
+          </div>
+          <div class="about-stat-card">
+            <div class="about-stat-value">Atlanta</div>
+            <div class="about-stat-label">Headquarters</div>
+          </div>
+          <div class="about-stat-card">
+            <div class="about-stat-value">1:1</div>
+            <div class="about-stat-label">Consulting Model</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Contact ─── -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Let's Work Together</h2>
+        <p class="section-sub">Ready to grow your business or explore our AI tools? Get in touch — we respond within 24 hours.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="reveal">
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+              <span class="field-error">Please enter your name.</span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required />
+              <span class="field-error">Please enter a valid email address.</span>
+            </div>
+            <div class="form-group">
+              <label for="service">Service Interest</label>
+              <select id="service" name="service">
+                <option value="">— Select a service —</option>
+                <option value="Business Strategy">Business Strategy</option>
+                <option value="AI Integration">AI Integration</option>
+                <option value="Staffing & Talent">Staffing &amp; Talent</option>
+                <option value="Sales & Marketing">Sales &amp; Marketing</option>
+                <option value="AI Tools">AI Tools</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" placeholder="Tell us about your project or question..." required></textarea>
+              <span class="field-error">Please enter a message.</span>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              Send Message
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+            </button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 12px"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            Message sent! We'll be in touch within 24 hours.
+          </div>
+        </div>
+        <div class="contact-info-cards reveal reveal-delay-2">
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Phone</div>
+              <div class="contact-card-value"><a href="tel:+16784444192">+01-678-444-4192</a></div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Email</div>
+              <div class="contact-card-value"><a href="mailto:support@diverseinc.net">support@diverseinc.net</a></div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Office</div>
+              <div class="contact-card-value">3355 Lenox Rd NE Ste 750<br />Atlanta, GA 30326</div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Response Time</div>
+              <div class="contact-card-value">Within 24 hours, Mon–Fri</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Footer ─── -->
+  <footer>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <span class="nav-logo-main">DIVERSE INDUSTRIES INC.</span>
+            <span class="nav-logo-sub">AI + Business Consulting</span>
+          </div>
+          <p>Empowering businesses with AI tools and expert consulting. Atlanta-based, serving clients worldwide.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/diverseinc.net" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://twitter.com/diverseinc1" target="_blank" rel="noopener" aria-label="Twitter/X">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/diverseindustriesinc/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.youtube.com/channel/UC4eXImv7aElpcC0tqOIzQQA" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="http://www.linkedin.com/in/awatsondiverseindustriesinc" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#contact">Business Strategy</a></li>
+            <li><a href="#contact">AI Integration</a></li>
+            <li><a href="#contact">Staffing & Talent</a></li>
+            <li><a href="#contact">Sales & Marketing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>AI Tools</h4>
+          <ul>
+            <li><a href="https://dealiq.diverseindustriesinc.com/broker" target="_blank" rel="noopener">DealIQ Pro</a></li>
+            <li><a href="https://diverseinc.github.io/promptforge" target="_blank" rel="noopener">PromptForge Pro</a></li>
+            <li><a href="https://diverseinc.github.io/dualbroker-crm/" target="_blank" rel="noopener">DualBroker CRM</a></li>
+            <li><a href="https://diverseinc.github.io/rag-command-center/" target="_blank" rel="noopener">RAG Command Center</a></li>
+            <li><a href="https://store.diverseindustriesinc.com" target="_blank" rel="noopener">Full Catalog →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="https://store.diverseindustriesinc.com">AI Catalog</a></li>
+            <li><a href="https://diverseinc.net" target="_blank" rel="noopener">DiverseInc.net</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Diverse Industries Inc. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ─── Navbar scroll ─── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    /* ─── Mobile menu ─── */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    function closeMobile() { mobileMenu.classList.remove('open'); }
+
+    /* ─── Scroll reveal ─── */
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+
+    /* ─── Contact form ─── */
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('formSuccess');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Pre-fill service from URL param
+    const params = new URLSearchParams(window.location.search);
+    const svc = params.get('service');
+    if (svc) {
+      const sel = document.getElementById('service');
+      const opts = sel.options;
+      for (let i = 0; i < opts.length; i++) {
+        if (opts[i].value.toLowerCase() === svc.toLowerCase()) {
+          sel.selectedIndex = i; break;
+        }
+      }
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      // Validate
+      ['name', 'email', 'message'].forEach(id => {
+        const group = document.getElementById(id).closest('.form-group');
+        const val = document.getElementById(id).value.trim();
+        const err = id === 'email'
+          ? !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
+          : !val;
+        group.classList.toggle('error', err);
+        if (err) valid = false;
+      });
+
+      if (!valid) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      try {
+        const data = new FormData(form);
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (res.ok) {
+          form.style.display = 'none';
+          successMsg.classList.add('show');
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+          alert('Something went wrong. Please email us directly at support@diverseinc.net');
+        }
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+        alert('Something went wrong. Please email us directly at support@diverseinc.net');
+      }
+    });
+  </script>
+</body>
+</html>
