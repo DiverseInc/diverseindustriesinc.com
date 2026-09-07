@@ -154,10 +154,19 @@
       line-height: 1;
     }
     .nav-logo-img {
-      height: 44px;
+      height: 36px;
       width: auto;
       flex-shrink: 0;
-      border-radius: 10px;
+      border-radius: 8px;
+    }
+    .nav-brand-text {
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+      margin-left: 10px;
+      white-space: nowrap;
     }
     .nav-links {
       display: flex;
@@ -185,18 +194,20 @@
     }
     .nav-links a:hover { color: var(--gold); }
     .nav-links a:hover::after { transform: scaleX(1); }
-    .nav-cta { margin-left: 12px; }
-    .nav-cta.btn {
+    .nav-cta {
+      margin-left: 16px;
+      display: inline-flex;
+      align-items: center;
       background: var(--gold);
       color: var(--navy);
       font-weight: 700;
       font-size: 0.85rem;
-      padding: 9px 22px;
+      padding: 10px 24px;
       border-radius: 50px;
       letter-spacing: 0.01em;
-      border: none;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
     }
-    .nav-cta.btn:hover { background: var(--gold-dark); transform: none; box-shadow: 0 4px 16px rgba(245,166,35,0.3); }
+    .nav-cta:hover { background: var(--gold-dark); box-shadow: 0 4px 16px rgba(245,166,35,0.35); transform: translateY(-1px); }
     .hamburger {
       display: none;
       flex-direction: column;
@@ -995,6 +1006,7 @@
     <div class="navbar-inner">
       <a href="#hero" class="nav-logo">
         <img src="assets/di-logo-nav.png" alt="Diverse Industries Inc." class="nav-logo-img" />
+        <span class="nav-brand-text">DIVERSE<br>INDUSTRIES</span>
       </a>
       <div class="nav-links">
         <a href="#services">Services</a>
