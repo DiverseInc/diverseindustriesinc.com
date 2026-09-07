@@ -150,53 +150,56 @@
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 12px;
-      line-height: 1.1;
+      gap: 0;
+      line-height: 1;
     }
     .nav-logo-img {
-      height: 40px;
+      height: 44px;
       width: auto;
       flex-shrink: 0;
+      border-radius: 10px;
     }
-    .nav-logo-text {
-      display: flex;
-      flex-direction: column;
-    }
-    .nav-logo-main {
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: 0.02em;
-      transition: color 0.3s;
-    }
-    .navbar.scrolled .nav-logo-main { color: var(--navy); }
-    .nav-logo-sub {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      transition: color 0.3s;
-    }
-    .navbar.scrolled .nav-logo-sub { color: var(--muted); }
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 2px;
     }
     .nav-links a {
       font-size: 0.875rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.8);
-      padding: 8px 14px;
-      border-radius: 8px;
-      transition: color 0.2s, background 0.2s;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      padding: 6px 16px;
+      border-radius: 6px;
+      position: relative;
+      transition: color 0.2s;
       letter-spacing: 0.01em;
     }
     .navbar.scrolled .nav-links a { color: var(--text); }
-    .nav-links a:hover { color: var(--gold); background: rgba(245,166,35,0.08); }
-    .navbar.scrolled .nav-links a:hover { background: rgba(245,166,35,0.1); }
-    .nav-cta { margin-left: 8px; }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; left: 16px; right: 16px;
+      height: 1.5px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .navbar.scrolled .nav-links a:hover { color: var(--navy); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .navbar.scrolled .nav-links a:hover::after { background: var(--navy); }
+    .nav-cta { margin-left: 12px; }
+    .nav-cta.btn {
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 9px 22px;
+      border-radius: 50px;
+      letter-spacing: 0.01em;
+      border: none;
+    }
+    .nav-cta.btn:hover { background: var(--gold-dark); transform: none; box-shadow: 0 4px 16px rgba(245,166,35,0.3); }
     .hamburger {
       display: none;
       flex-direction: column;
@@ -245,47 +248,73 @@
       position: relative;
       overflow: hidden;
     }
-    .hero-mesh {
+    /* Animated grid overlay */
+    .hero-grid {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 100% 80% at 60% 20%, rgba(245,166,35,0.12) 0%, transparent 55%),
-        radial-gradient(ellipse 80% 60% at 10% 80%, rgba(26,74,122,0.7) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 90% 70%, rgba(245,166,35,0.06) 0%, transparent 50%),
-        linear-gradient(180deg, #0A2540 0%, #061829 100%);
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
       pointer-events: none;
     }
-    .hero-glow {
+    /* Floating orb shapes */
+    .hero-orb {
       position: absolute;
-      width: 600px; height: 600px;
-      top: -100px; right: -100px;
-      background: radial-gradient(circle, rgba(245,166,35,0.08) 0%, transparent 70%);
+      border-radius: 50%;
       pointer-events: none;
+      filter: blur(60px);
+    }
+    .hero-orb-1 {
+      width: 500px; height: 500px;
+      top: -150px; right: -80px;
+      background: radial-gradient(circle, rgba(245,166,35,0.15) 0%, transparent 70%);
+      animation: orbFloat1 8s ease-in-out infinite;
+    }
+    .hero-orb-2 {
+      width: 400px; height: 400px;
+      bottom: -100px; left: -100px;
+      background: radial-gradient(circle, rgba(26,74,122,0.8) 0%, transparent 70%);
+      animation: orbFloat2 10s ease-in-out infinite;
+    }
+    .hero-orb-3 {
+      width: 200px; height: 200px;
+      top: 40%; left: 55%;
+      background: radial-gradient(circle, rgba(245,166,35,0.08) 0%, transparent 70%);
+      animation: orbFloat3 6s ease-in-out infinite;
+    }
+    @keyframes orbFloat1 {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(30px) scale(1.05); }
+    }
+    @keyframes orbFloat2 {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-25px) scale(1.08); }
+    }
+    @keyframes orbFloat3 {
+      0%, 100% { transform: translate(0, 0); }
+      33% { transform: translate(20px, -15px); }
+      66% { transform: translate(-10px, 10px); }
     }
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       padding: 140px 0 80px;
-    }
-    .hero-logo {
-      height: 64px;
-      width: auto;
-      margin-bottom: 32px;
-      opacity: 0.9;
     }
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(245,166,35,0.12);
-      border: 1px solid rgba(245,166,35,0.25);
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.2);
       color: var(--gold);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 6px 16px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 6px 14px;
       border-radius: 50px;
-      margin-bottom: 32px;
-      letter-spacing: 0.04em;
+      margin-bottom: 28px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
     .hero-badge-dot {
       width: 6px; height: 6px;
@@ -299,45 +328,71 @@
       50% { opacity: 0.5; transform: scale(1.4); }
     }
     .hero h1 {
-      font-size: clamp(2.8rem, 6.5vw, 5rem);
-      font-weight: 800;
+      font-size: clamp(3.2rem, 7.5vw, 6rem);
+      font-weight: 900;
       color: var(--white);
-      line-height: 1.08;
-      margin-bottom: 24px;
-      max-width: 780px;
-      letter-spacing: -0.02em;
+      line-height: 1.0;
+      margin-bottom: 28px;
+      max-width: 820px;
+      letter-spacing: -0.03em;
     }
-    .hero h1 .gold { color: var(--gold); }
+    .hero h1 .gold {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      color: rgba(255,255,255,0.6);
-      max-width: 560px;
-      line-height: 1.8;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.55);
+      max-width: 520px;
+      line-height: 1.75;
       margin-bottom: 40px;
       font-weight: 400;
     }
-    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
-    .hero-ctas .btn { font-size: 0.95rem; padding: 14px 28px; }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .hero-ctas .btn { font-size: 0.95rem; padding: 14px 30px; font-weight: 700; border-radius: 50px; }
+    .hero-ctas .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border: none;
+      color: var(--navy);
+      box-shadow: 0 4px 24px rgba(245,166,35,0.3);
+    }
+    .hero-ctas .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(245,166,35,0.4);
+    }
+    .hero-ctas .btn-outline {
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+    }
+    .hero-ctas .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.35); transform: translateY(-2px); }
     .hero-stats {
       display: flex;
-      gap: 48px;
-      margin-top: 72px;
-      padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      gap: 56px;
+      margin-top: 64px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,0.07);
     }
     .hero-stat-value {
-      font-size: 2.25rem;
-      font-weight: 800;
-      color: var(--gold);
+      font-size: 2rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       line-height: 1;
       letter-spacing: -0.02em;
     }
     .hero-stat-label {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
       margin-top: 6px;
       font-weight: 500;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     /* ─── Section base ─── */
@@ -345,47 +400,6 @@
     .section-header { margin-bottom: 56px; }
 
 
-
-    /* ─── Lead capture form ─── */
-    .hero-lead-capture { margin-top: 32px; }
-    .lead-capture-label {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 12px;
-      font-weight: 500;
-    }
-    .lead-form {
-      display: flex;
-      gap: 10px;
-      max-width: 480px;
-      margin-bottom: 8px;
-    }
-    .lead-form input {
-      flex: 1;
-      padding: 12px 16px;
-      border: 1.5px solid rgba(255,255,255,0.2);
-      border-radius: 8px;
-      background: rgba(255,255,255,0.08);
-      color: white;
-      font-size: 0.9rem;
-      font-family: 'Inter', sans-serif;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .lead-form input::placeholder { color: rgba(255,255,255,0.4); }
-    .lead-form input:focus { border-color: var(--gold); }
-    .lead-capture-note {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.35);
-    }
-    .lead-success {
-      display: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #34d399;
-      margin-top: 4px;
-    }
-    .lead-success.show { display: block; }
 
     /* ─── Trusted By strip ─── */
     .trusted-by {
@@ -986,10 +1000,6 @@
     <div class="navbar-inner">
       <a href="#hero" class="nav-logo">
         <img src="assets/di-logo-nav.png" alt="Diverse Industries Inc." class="nav-logo-img" />
-        <span class="nav-logo-text">
-          <span class="nav-logo-main">DIVERSE INDUSTRIES INC.</span>
-          <span class="nav-logo-sub">AI + Business Consulting</span>
-        </span>
       </a>
       <div class="nav-links">
         <a href="#services">Services</a>
@@ -998,7 +1008,7 @@
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </div>
-      <a href="#contact" class="btn btn-primary btn-sm nav-cta">Free Consultation</a>
+      <a href="#contact" class="nav-cta">Get Started</a>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -1012,41 +1022,27 @@
     <a href="#catalog" onclick="closeMobile()">Catalog</a>
     <a href="#about" onclick="closeMobile()">About</a>
     <a href="#contact" onclick="closeMobile()">Contact</a>
-    <a href="#contact" class="btn btn-primary" onclick="closeMobile()">Free Consultation</a>
+    <a href="#contact" class="btn btn-primary" onclick="closeMobile()">Get Started</a>
   </div>
 
   <!-- ─── Hero ─── -->
   <section class="hero" id="hero">
-    <!-- Modern mesh gradient background -->
-    <div class="hero-mesh"></div>
-    <div class="hero-glow"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
     <div class="container hero-content">
-      <img src="assets/diverse-logo-hero-inv.png" alt="Diverse Industries Inc." class="hero-logo" />
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
         Atlanta, GA · Serving Clients Worldwide
       </div>
       <h1>We Build<br /><span class="gold">Businesses.</span><br />We Build <span class="gold">AI.</span></h1>
       <p class="hero-sub">
-        Diverse Industries Inc. delivers expert business consulting across real estate, operations, staffing, and growth strategy — alongside a growing suite of production-grade AI tools built for professionals who demand results.
+        Expert business consulting — from strategy and operations to leadership and digital transformation — alongside a production-grade suite of AI tools built for professionals who demand results.
       </p>
       <div class="hero-ctas">
-        <a href="#ai-tools" class="btn btn-primary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/></svg>
-          Explore AI Tools
-        </a>
+        <a href="#ai-tools" class="btn btn-primary">Explore AI Tools</a>
         <a href="#contact" class="btn btn-outline">Work With Us</a>
-      </div>
-      <div class="hero-lead-capture">
-        <p class="lead-capture-label">Not sure where to start? Get a free AI readiness assessment.</p>
-        <form class="lead-form" id="leadForm" action="https://formspree.io/f/xljewqgy" method="POST">
-          <input type="email" name="email" placeholder="Enter your work email" required />
-          <input type="hidden" name="service" value="Free AI Assessment" />
-          <input type="hidden" name="form_type" value="hero_lead_capture" />
-          <button type="submit" class="btn btn-primary btn-sm">Get Free Assessment</button>
-        </form>
-        <p class="lead-capture-note">No spam. Just a real conversation about your business.</p>
-        <p class="lead-success" id="leadSuccess">Thanks! We'll be in touch within 24 hours.</p>
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
@@ -1678,24 +1674,6 @@
       }
     });
 
-    /* ─── Lead capture form ─── */
-    const leadForm = document.getElementById('leadForm');
-    const leadSuccess = document.getElementById('leadSuccess');
-    if (leadForm) {
-      leadForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        try {
-          const data = new FormData(leadForm);
-          const res = await fetch(leadForm.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-          if (res.ok) {
-            leadForm.style.display = 'none';
-            document.querySelector('.lead-capture-note').style.display = 'none';
-            document.querySelector('.lead-capture-label').style.display = 'none';
-            leadSuccess.classList.add('show');
-          }
-        } catch { /* silently fail */ }
-      });
-    }
   </script>
 </body>
 </html>
