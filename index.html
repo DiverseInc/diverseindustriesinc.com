@@ -130,14 +130,14 @@
       top: 0; left: 0; right: 0;
       z-index: 1000;
       padding: 0 24px;
-      transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
-      background: transparent;
+      background: rgba(10,37,64,0.75);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 4px 24px rgba(10,37,64,0.2);
     }
     .navbar.scrolled {
-      background: rgba(10,37,64,0.85);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.06), 0 4px 24px rgba(10,37,64,0.3);
+      box-shadow: 0 4px 32px rgba(10,37,64,0.35);
     }
     .navbar-inner {
       max-width: var(--max-w);
@@ -167,14 +167,13 @@
     .nav-links a {
       font-size: 0.875rem;
       font-weight: 500;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255,255,255,0.8);
       padding: 6px 16px;
       border-radius: 6px;
       position: relative;
       transition: color 0.2s;
       letter-spacing: 0.01em;
     }
-    .navbar.scrolled .nav-links a { color: var(--text); }
     .nav-links a::after {
       content: '';
       position: absolute;
@@ -184,10 +183,8 @@
       transform: scaleX(0);
       transition: transform 0.2s ease;
     }
-    .nav-links a:hover { color: var(--white); }
-    .navbar.scrolled .nav-links a:hover { color: var(--navy); }
+    .nav-links a:hover { color: var(--gold); }
     .nav-links a:hover::after { transform: scaleX(1); }
-    .navbar.scrolled .nav-links a:hover::after { background: var(--navy); }
     .nav-cta { margin-left: 12px; }
     .nav-cta.btn {
       background: var(--gold);
@@ -214,9 +211,7 @@
       height: 2px;
       background: var(--white);
       border-radius: 2px;
-      transition: background 0.3s, transform 0.3s;
     }
-    .navbar.scrolled .hamburger span { background: var(--navy); }
     .mobile-menu {
       display: none;
       position: fixed;
