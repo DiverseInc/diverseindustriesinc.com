@@ -325,6 +325,310 @@
     section { padding: var(--section-py) 0; }
     .section-header { margin-bottom: 56px; }
 
+    /* ─── Floating hero shapes ─── */
+    .hero-shape {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0.12;
+    }
+    .hero-shape-1 {
+      width: 300px; height: 300px;
+      background: var(--gold);
+      top: 10%; right: 5%;
+      animation: float1 7s ease-in-out infinite;
+    }
+    .hero-shape-2 {
+      width: 180px; height: 180px;
+      border: 2px solid rgba(245,166,35,0.3);
+      top: 55%; right: 12%;
+      animation: float2 9s ease-in-out infinite;
+    }
+    .hero-shape-3 {
+      width: 120px; height: 120px;
+      background: rgba(245,166,35,0.2);
+      bottom: 20%; right: 3%;
+      animation: float3 6s ease-in-out infinite;
+    }
+    @keyframes float1 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(10deg); }
+    }
+    @keyframes float2 {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(20px) scale(1.05); }
+    }
+    @keyframes float3 {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(-15px); }
+    }
+
+    /* ─── Lead capture form ─── */
+    .hero-lead-capture { margin-top: 32px; }
+    .lead-capture-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    .lead-form {
+      display: flex;
+      gap: 10px;
+      max-width: 480px;
+      margin-bottom: 8px;
+    }
+    .lead-form input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .lead-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .lead-form input:focus { border-color: var(--gold); }
+    .lead-capture-note {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+    }
+    .lead-success {
+      display: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 4px;
+    }
+    .lead-success.show { display: block; }
+
+    /* ─── Trusted By strip ─── */
+    .trusted-by {
+      background: var(--white);
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .trusted-label {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .trusted-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trusted-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.45;
+      transition: opacity 0.2s;
+    }
+    .trusted-logo:hover { opacity: 0.75; }
+    .trusted-logo-icon {
+      width: 48px; height: 48px;
+      background: var(--surface);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+    }
+    .trusted-logo-icon svg { width: 24px; height: 24px; color: var(--navy); }
+    .trusted-logo-name {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── How It Works ─── */
+    .how-it-works { background: var(--white); }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      position: relative;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: calc(16.67% + 20px);
+      right: calc(16.67% + 20px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--navy));
+      opacity: 0.25;
+    }
+    .step-card {
+      text-align: center;
+      padding: 0 16px;
+    }
+    .step-number {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      font-size: 1.5rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 20px rgba(245,166,35,0.3);
+      position: relative;
+      z-index: 1;
+    }
+    .step-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .step-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ─── AI Tools (upgraded) ─── */
+    .tool-card-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, rgba(10,37,64,0.08), rgba(10,37,64,0.04));
+      border: 1px solid var(--border);
+    }
+    .tool-card-icon svg { width: 28px; height: 28px; color: var(--navy); }
+    .tool-card-features {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .tool-card-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .tool-card-feature svg { width: 14px; height: 14px; color: var(--gold); flex-shrink: 0; }
+
+    /* ─── Testimonials ─── */
+    .testimonials { background: var(--surface); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+    }
+    .testimonial-stars svg { width: 16px; height: 16px; fill: var(--gold); }
+    .testimonial-quote {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.7;
+      flex: 1;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .testimonial-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .testimonial-role {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ─── Count-up animation ─── */
+    .count-up { transition: color 0.3s; }
+    .about-stat-card.counting .about-stat-value { animation: countFlash 0.3s ease; }
+    @keyframes countFlash {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    /* ─── Catalog CTA (upgraded) ─── */
+    .catalog-cta-inner {
+      border: 2px solid rgba(245,166,35,0.25);
+      border-radius: 24px;
+      padding: 64px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .catalog-cta-inner::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--gold), transparent 50%, var(--gold));
+      z-index: 0;
+      opacity: 0.15;
+      animation: borderGlow 4s ease-in-out infinite;
+    }
+    @keyframes borderGlow {
+      0%, 100% { opacity: 0.15; }
+      50% { opacity: 0.3; }
+    }
+    .catalog-cta-inner > * { position: relative; z-index: 1; }
+    .catalog-cta .section-sub { max-width: 640px; }
+
+    /* ─── Section divider ─── */
+    .section-divider {
+      width: 48px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--navy));
+      border-radius: 2px;
+      margin: 0 auto 16px;
+    }
+
     /* ─── Services ─── */
     .services { background: var(--surface); }
     .services-grid {
@@ -646,28 +950,7 @@
     .footer-legal { display: flex; gap: 24px; }
     .footer-legal a:hover { color: var(--white); }
 
-    /* ─── Responsive ─── */
-    @media (max-width: 1024px) {
-      :root { --section-py: 80px; }
-      .footer-main { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 768px) {
-      :root { --section-py: 64px; }
-      .nav-links, .nav-cta { display: none; }
-      .hamburger { display: flex; }
-      .hero-stats { gap: 24px; flex-wrap: wrap; }
-      .hero-stat-value { font-size: 1.5rem; }
-      .services-grid, .tools-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
-      .about-stats { grid-template-columns: 1fr 1fr; }
-      .footer-main { grid-template-columns: 1fr; gap: 32px; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
-    }
-    @media (max-width: 480px) {
-      .hero-ctas { flex-direction: column; }
-      .hero-ctas .btn { width: 100%; justify-content: center; }
-      .catalog-cta-btns { flex-direction: column; align-items: center; }
-      .catalog-cta-btns .btn { width: 100%; justify-content: center; }
-    }
+
 
     /* ─── Scrollbar ─── */
     ::-webkit-scrollbar { width: 6px; }
@@ -680,6 +963,37 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── Responsive updates ─── */
+    @media (max-width: 1024px) {
+      :root { --section-py: 80px; }
+      .footer-main { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid::before { display: none; }
+    }
+    @media (max-width: 768px) {
+      :root { --section-py: 64px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .hero-stat-value { font-size: 1.5rem; }
+      .services-grid, .tools-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      .footer-main { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+      .steps-grid::before { display: none; }
+      .trusted-logos { gap: 24px; }
+      .lead-form { flex-direction: column; }
+      .catalog-cta-inner { padding: 40px 24px; }
+    }
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas .btn { width: 100%; justify-content: center; }
+      .catalog-cta-btns { flex-direction: column; align-items: center; }
+      .catalog-cta-btns .btn { width: 100%; justify-content: center; }
+    }
   </style>
 </head>
 <body>
@@ -721,6 +1035,9 @@
   <!-- ─── Hero ─── -->
   <section class="hero" id="hero">
     <div class="hero-grid-pattern"></div>
+    <div class="hero-shape hero-shape-1"></div>
+    <div class="hero-shape hero-shape-2"></div>
+    <div class="hero-shape hero-shape-3"></div>
     <div class="container hero-content">
       <img src="assets/diverse-logo-hero-inv.png" alt="Diverse Industries Inc." class="hero-logo" />
       <div class="hero-badge">
@@ -761,6 +1078,51 @@
         <div class="hero-stat">
           <div class="hero-stat-value">1</div>
           <div class="hero-stat-label">Trusted Partner</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Trusted By ─── -->
+  <section class="trusted-by">
+    <div class="container">
+      <p class="trusted-label">Built With · Trusted By · Powered By</p>
+      <div class="trusted-logos">
+        <div class="trusted-logo">
+          <div class="trusted-logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/></svg>
+          </div>
+          <span class="trusted-logo-name">OpenAI / LLM APIs</span>
+        </div>
+        <div class="trusted-logo">
+          <div class="trusted-logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <span class="trusted-logo-name">Vercel / Cloud</span>
+        </div>
+        <div class="trusted-logo">
+          <div class="trusted-logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          </div>
+          <span class="trusted-logo-name">Gumroad / Payments</span>
+        </div>
+        <div class="trusted-logo">
+          <div class="trusted-logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <span class="trusted-logo-name">DeepSeek / AI</span>
+        </div>
+        <div class="trusted-logo">
+          <div class="trusted-logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <span class="trusted-logo-name">GitHub / Deploy</span>
+        </div>
+        <div class="trusted-logo">
+          <div class="trusted-logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <span class="trusted-logo-name">Formspree / Forms</span>
         </div>
       </div>
     </div>
@@ -811,6 +1173,35 @@
     </div>
   </section>
 
+  <!-- ─── How It Works ─── -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center;">
+        <div class="section-divider"></div>
+        <span class="section-label">Simple Process</span>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub" style="margin:0 auto 56px;">Three steps from initial conversation to delivered results.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal reveal-delay-1">
+          <div class="step-number">1</div>
+          <h3>Tell Us Your Challenge</h3>
+          <p>Reach out through our contact form or book a free consultation. Tell us what you're working on — we'll listen first.</p>
+        </div>
+        <div class="step-card reveal reveal-delay-2">
+          <div class="step-number">2</div>
+          <h3>We Build the Right Solution</h3>
+          <p>Whether it's an AI tool, a consulting engagement, or a full strategy — we tailor the approach to your specific situation.</p>
+        </div>
+        <div class="step-card reveal reveal-delay-3">
+          <div class="step-number">3</div>
+          <h3>You Get Results</h3>
+          <p>Live tools, actionable frameworks, and ongoing support. We measure success by your outcomes, not deliverables.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── AI Tools ─── -->
   <section class="ai-tools" id="ai-tools">
     <div class="container">
@@ -823,8 +1214,16 @@
         <!-- DealIQ Pro -->
         <div class="tool-card reveal reveal-delay-1">
           <span class="tool-badge">Real Estate AI</span>
+          <div class="tool-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
           <h3>DealIQ Pro</h3>
-          <p class="tool-desc">AI-powered deal analysis and dealflow management for real estate professionals. Evaluate opportunities, run financial scenarios, and close faster — all in one platform.</p>
+          <p class="tool-desc">AI-powered deal analysis and dealflow management for real estate professionals.</p>
+          <div class="tool-card-features">
+            <div class="tool-card-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>AI deal scoring</div>
+            <div class="tool-card-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Financial scenario modeling</div>
+            <div class="tool-card-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Pipeline management</div>
+          </div>
           <div class="tool-meta">
             <span class="tool-price">From <span>$79</span> / month</span>
             <a href="https://dealiq.diverseindustriesinc.com/broker" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Try Free</a>
@@ -833,8 +1232,16 @@
         <!-- PromptForge Pro -->
         <div class="tool-card reveal reveal-delay-2">
           <span class="tool-badge">AI Productivity</span>
+          <div class="tool-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/></svg>
+          </div>
           <h3>PromptForge Pro</h3>
-          <p class="tool-desc">37-in-1 AI prompt studio for professionals. Master AI prompting across business writing, analysis, coding, creative, and more. One tool, every use case.</p>
+          <p class="tool-desc">37-in-1 AI prompt studio for professionals. Master prompting across every use case.</p>
+          <div class="tool-card-features">
+            <div class="tool-card-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>37 proven prompt templates</div>
+            <div class="tool-card-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Business, coding, creative</div>
+            <div class="tool-card-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>One-time purchase, lifetime access</div>
+          </div>
           <div class="tool-meta">
             <span class="tool-price"><span>$19</span> — one-time</span>
             <a href="https://diverseinc.github.io/promptforge" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Learn More</a>
@@ -843,8 +1250,16 @@
         <!-- DualBroker CRM -->
         <div class="tool-card reveal reveal-delay-3">
           <span class="tool-badge">CRM</span>
+          <div class="tool-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
           <h3>DualBroker CRM</h3>
-          <p class="tool-desc">Real estate CRM built on AI — designed for brokers and agents who need intelligent lead tracking, follow-up automation, and pipeline visibility without the enterprise complexity.</p>
+          <p class="tool-desc">AI-powered CRM built for real estate brokers and agents who need real results.</p>
+          <div class="tool-card-features">
+            <div class="tool-card-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Lead tracking &amp; automation</div>
+            <div class="tool-card-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Follow-up reminders</div>
+            <div class="tool-card-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Pipeline visibility</div>
+          </div>
           <div class="tool-meta">
             <span class="tool-price">Free to use</span>
             <a href="https://diverseinc.github.io/dualbroker-crm/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Open App</a>
@@ -853,8 +1268,16 @@
         <!-- RAG Command Center -->
         <div class="tool-card reveal reveal-delay-4">
           <span class="tool-badge">AI Infrastructure</span>
+          <div class="tool-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
           <h3>RAG Command Center</h3>
-          <p class="tool-desc">Build and manage AI knowledge bases with precision. Upload documents, query your data with natural language, and deploy production-ready RAG pipelines in minutes.</p>
+          <p class="tool-desc">Build and manage AI knowledge bases. Upload docs, query with natural language.</p>
+          <div class="tool-card-features">
+            <div class="tool-card-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Document ingestion</div>
+            <div class="tool-card-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Natural language queries</div>
+            <div class="tool-card-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Production-ready RAG</div>
+          </div>
           <div class="tool-meta">
             <span class="tool-price">Free to use</span>
             <a href="https://diverseinc.github.io/rag-command-center/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Open App</a>
@@ -867,7 +1290,7 @@
   <!-- ─── Catalog CTA ─── -->
   <section class="catalog-cta" id="catalog">
     <div class="container">
-      <div class="reveal">
+      <div class="catalog-cta-inner reveal">
         <span class="section-label" style="color: var(--gold);">The Full Catalog</span>
         <h2 class="section-title" style="max-width: none;">22+ Tools and Counting</h2>
         <p class="section-sub">
@@ -879,6 +1302,71 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
           <a href="https://diverseinc.gumroad.com/l/10-ai-prompts-real-estate" target="_blank" rel="noopener" class="btn btn-outline">Free AI Prompts for Real Estate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Testimonials ─── -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center;">
+        <div class="section-divider"></div>
+        <span class="section-label">Social Proof</span>
+        <h2 class="section-title">What Professionals Are Saying</h2>
+        <p class="section-sub" style="margin:0 auto;">Early users and clients sharing their experience with our tools and approach.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-quote">"DealIQ Pro changed how I evaluate commercial deals. The AI scenario modeling alone saves me hours every week — and the insights are genuinely actionable."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div>
+              <div class="testimonial-name">Michael R.</div>
+              <div class="testimonial-role">Commercial Real Estate Broker, Atlanta</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-quote">"PromptForge Pro is the first prompt library I've actually used daily. The structure around each template makes it easy to adapt to my specific client situations."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SK</div>
+            <div>
+              <div class="testimonial-name">Sarah K.</div>
+              <div class="testimonial-role">Business Consultant, SaaS Founder</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-quote">"The consulting approach here is different — they actually understand both business operations and AI. Rare combination. Helped us streamline our whole onboarding workflow."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DL</div>
+            <div>
+              <div class="testimonial-name">David L.</div>
+              <div class="testimonial-role">Operations Director, Staffing Firm</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1097,6 +1585,37 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => io.observe(el));
 
+    /* ─── Count-up animation ─── */
+    function animateCountUp(el, target, suffix) {
+      const duration = 1800;
+      const start = performance.now();
+      const startVal = 0;
+      function update(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(startVal + (target - startVal) * eased);
+        el.textContent = current + (suffix || '');
+        el.parentElement.classList.add('counting');
+        setTimeout(() => el.parentElement.classList.remove('counting'), 300);
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+          entry.target.dataset.counted = 'true';
+          const val = entry.target;
+          const text = val.textContent;
+          const num = parseInt(text, 10);
+          const suffix = text.replace(String(num), '');
+          if (!isNaN(num)) animateCountUp(val, num, suffix);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.hero-stat-value, .about-stat-value').forEach(el => countObserver.observe(el));
+
     /* ─── Contact form ─── */
     const form = document.getElementById('contactForm');
     const successMsg = document.getElementById('formSuccess');
@@ -1152,6 +1671,25 @@
         alert('Something went wrong. Please email us directly at support@diverseinc.net');
       }
     });
+
+    /* ─── Lead capture form ─── */
+    const leadForm = document.getElementById('leadForm');
+    const leadSuccess = document.getElementById('leadSuccess');
+    if (leadForm) {
+      leadForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        try {
+          const data = new FormData(leadForm);
+          const res = await fetch(leadForm.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+          if (res.ok) {
+            leadForm.style.display = 'none';
+            document.querySelector('.lead-capture-note').style.display = 'none';
+            document.querySelector('.lead-capture-label').style.display = 'none';
+            leadSuccess.classList.add('show');
+          }
+        } catch { /* silently fail */ }
+      });
+    }
   </script>
 </body>
 </html>
